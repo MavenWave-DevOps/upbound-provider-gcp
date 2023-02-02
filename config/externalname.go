@@ -256,7 +256,7 @@ var externalNameConfigs = map[string]config.ExternalName{
 	// Note(donovanmuller): The google provider only supports this permission at project or organizational level currently
 	// It also requires access to multiple GCP Projects
 	// Imported by using the following format: host-project-id/service-project-id-1
-	// "google_compute_shared_vpc_service_project": TemplatedStringAsIdentifierWithNoName("{{ .setup.configuration.project }}/{{ .external_name }}"),
+	"google_compute_shared_vpc_service_project": TemplatedStringAsIdentifierWithNoName("{{ .setup.configuration.project }}/{{ .external_name }}"),
 	// Imported by using the following format: projects/{{project}}/regions/{{region}}/subnetworks/{{subnetwork}} roles/compute.networkUser user:jane@example.com
 	"google_compute_subnetwork_iam_member": config.IdentifierFromProvider,
 	// Imported by using the following format: projects/{{project}}/global/targetGrpcProxies/{{name}}
