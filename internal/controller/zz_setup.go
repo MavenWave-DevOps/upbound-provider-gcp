@@ -164,6 +164,7 @@ import (
 	routernat "github.com/upbound/provider-gcp/internal/controller/compute/routernat"
 	securitypolicy "github.com/upbound/provider-gcp/internal/controller/compute/securitypolicy"
 	serviceattachment "github.com/upbound/provider-gcp/internal/controller/compute/serviceattachment"
+	sharedvpchostproject "github.com/upbound/provider-gcp/internal/controller/compute/sharedvpchostproject"
 	snapshot "github.com/upbound/provider-gcp/internal/controller/compute/snapshot"
 	snapshotiammember "github.com/upbound/provider-gcp/internal/controller/compute/snapshotiammember"
 	sslcertificate "github.com/upbound/provider-gcp/internal/controller/compute/sslcertificate"
@@ -498,6 +499,7 @@ func Setup(mgr ctrl.Manager, o controller.Options) error {
 		routernat.Setup,
 		securitypolicy.Setup,
 		serviceattachment.Setup,
+		sharedvpchostproject.Setup,
 		snapshot.Setup,
 		snapshotiammember.Setup,
 		sslcertificate.Setup,
