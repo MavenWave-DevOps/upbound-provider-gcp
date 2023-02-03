@@ -685,8 +685,8 @@ func (l *ServiceAttachmentList) GetItems() []resource.Managed {
 	return items
 }
 
-// GetItems of this SnapshotIAMMemberList.
-func (l *SnapshotIAMMemberList) GetItems() []resource.Managed {
+// GetItems of this SharedVPCHostProjectList.
+func (l *SharedVPCHostProjectList) GetItems() []resource.Managed {
 	items := make([]resource.Managed, len(l.Items))
 	for i := range l.Items {
 		items[i] = &l.Items[i]
