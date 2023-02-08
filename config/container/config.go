@@ -1,11 +1,14 @@
 package container
 
 import (
+	"context"
 	"encoding/base64"
 	"net/url"
 
 	"github.com/pkg/errors"
 	"github.com/upbound/upjet/pkg/config"
+	"golang.org/x/oauth2"
+	"golang.org/x/oauth2/google"
 	"k8s.io/client-go/tools/clientcmd"
 	clientcmdapi "k8s.io/client-go/tools/clientcmd/api"
 
@@ -100,6 +103,28 @@ func Configure(p *config.Provider) { //nolint:gocyclo
 					},
 				},
 				CurrentContext: name,
+			}
+			if clientKeyData == "" {
+				ctx := context.Background()
+				scopes := []string{
+					"https://www.googleapis.com/auth/cloud-platform",
+				}
+				creds, err := google.FindDefaultCredentials(ctx, scopes...)
+				if err != nil {
+					return nil, err
+				}
+				token, err := creds.TokenSource.Token()
+				if err != nil {
+					return nil, err
+				}
+				oauth2.ReuseTokenSource(token, creds.TokenSource)
+				if token.AccessToken != "" {
+					kc.AuthInfos = map[string]*clientcmdapi.AuthInfo{
+						name: {
+							Token: token.AccessToken,
+						},
+					}
+				}
 			}
 			kcb, err := clientcmd.Write(kc)
 			if err != nil {
