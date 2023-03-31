@@ -165,6 +165,7 @@ import (
 	securitypolicy "github.com/upbound/provider-gcp/internal/controller/compute/securitypolicy"
 	serviceattachment "github.com/upbound/provider-gcp/internal/controller/compute/serviceattachment"
 	sharedvpchostproject "github.com/upbound/provider-gcp/internal/controller/compute/sharedvpchostproject"
+	sharedvpcserviceproject "github.com/upbound/provider-gcp/internal/controller/compute/sharedvpcserviceproject"
 	snapshot "github.com/upbound/provider-gcp/internal/controller/compute/snapshot"
 	snapshotiammember "github.com/upbound/provider-gcp/internal/controller/compute/snapshotiammember"
 	sslcertificate "github.com/upbound/provider-gcp/internal/controller/compute/sslcertificate"
@@ -500,6 +501,7 @@ func Setup(mgr ctrl.Manager, o controller.Options) error {
 		securitypolicy.Setup,
 		serviceattachment.Setup,
 		sharedvpchostproject.Setup,
+		sharedvpcserviceproject.Setup,
 		snapshot.Setup,
 		snapshotiammember.Setup,
 		sslcertificate.Setup,

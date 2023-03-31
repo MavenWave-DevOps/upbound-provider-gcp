@@ -4969,6 +4969,72 @@ func (mg *SharedVPCHostProject) SetWriteConnectionSecretToReference(r *xpv1.Secr
 	mg.Spec.WriteConnectionSecretToReference = r
 }
 
+// GetCondition of this SharedVPCServiceProject.
+func (mg *SharedVPCServiceProject) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
+	return mg.Status.GetCondition(ct)
+}
+
+// GetDeletionPolicy of this SharedVPCServiceProject.
+func (mg *SharedVPCServiceProject) GetDeletionPolicy() xpv1.DeletionPolicy {
+	return mg.Spec.DeletionPolicy
+}
+
+// GetProviderConfigReference of this SharedVPCServiceProject.
+func (mg *SharedVPCServiceProject) GetProviderConfigReference() *xpv1.Reference {
+	return mg.Spec.ProviderConfigReference
+}
+
+/*
+GetProviderReference of this SharedVPCServiceProject.
+Deprecated: Use GetProviderConfigReference.
+*/
+func (mg *SharedVPCServiceProject) GetProviderReference() *xpv1.Reference {
+	return mg.Spec.ProviderReference
+}
+
+// GetPublishConnectionDetailsTo of this SharedVPCServiceProject.
+func (mg *SharedVPCServiceProject) GetPublishConnectionDetailsTo() *xpv1.PublishConnectionDetailsTo {
+	return mg.Spec.PublishConnectionDetailsTo
+}
+
+// GetWriteConnectionSecretToReference of this SharedVPCServiceProject.
+func (mg *SharedVPCServiceProject) GetWriteConnectionSecretToReference() *xpv1.SecretReference {
+	return mg.Spec.WriteConnectionSecretToReference
+}
+
+// SetConditions of this SharedVPCServiceProject.
+func (mg *SharedVPCServiceProject) SetConditions(c ...xpv1.Condition) {
+	mg.Status.SetConditions(c...)
+}
+
+// SetDeletionPolicy of this SharedVPCServiceProject.
+func (mg *SharedVPCServiceProject) SetDeletionPolicy(r xpv1.DeletionPolicy) {
+	mg.Spec.DeletionPolicy = r
+}
+
+// SetProviderConfigReference of this SharedVPCServiceProject.
+func (mg *SharedVPCServiceProject) SetProviderConfigReference(r *xpv1.Reference) {
+	mg.Spec.ProviderConfigReference = r
+}
+
+/*
+SetProviderReference of this SharedVPCServiceProject.
+Deprecated: Use SetProviderConfigReference.
+*/
+func (mg *SharedVPCServiceProject) SetProviderReference(r *xpv1.Reference) {
+	mg.Spec.ProviderReference = r
+}
+
+// SetPublishConnectionDetailsTo of this SharedVPCServiceProject.
+func (mg *SharedVPCServiceProject) SetPublishConnectionDetailsTo(r *xpv1.PublishConnectionDetailsTo) {
+	mg.Spec.PublishConnectionDetailsTo = r
+}
+
+// SetWriteConnectionSecretToReference of this SharedVPCServiceProject.
+func (mg *SharedVPCServiceProject) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
+	mg.Spec.WriteConnectionSecretToReference = r
+}
+
 // GetCondition of this Snapshot.
 func (mg *Snapshot) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
 	return mg.Status.GetCondition(ct)
